@@ -7,7 +7,7 @@ document.querySelectorAll("button")[i].addEventListener("click",clickhandle);
 
 function clickhandle(){
 //alert("I got clicked !!");
-console.log(this.style.color="white");
+//console.log(this.style.color="white");
 var audio;
 if(this.innerHTML=="w")
 audio = new Audio('sounds/tom-1.mp3');
@@ -24,4 +24,14 @@ audio = new Audio('sounds/kick-bass.mp3');
 else if (this.innerHTML=="l")
 audio = new Audio('sounds/snare.mp3');
 audio.play();
+var key = this.innerHTML;
+KeyAnimation(key);
+}
+
+function KeyAnimation(key){
+  var button = document.querySelector("."+key);
+  button.classList.add("pressed");
+  setTimeout(function(){
+    button.classList.remove("pressed");
+  },100);
 }
